@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Docs</title>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Nunito"
+        />
+        <link rel="stylesheet" href="/assets/docs-codehilie.css" />
+        <link rel="stylesheet" href="/assets/docs.css" />
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Direct header link
+                document
+                    .querySelectorAll("h1, h2, h3, h4, h5, h6")
+                    .forEach(function (e) {
+                        if (!(e.id == "tableofcontents")) {
+                            e.classList.add("headerlink");
+                            id = e.innerText;
+                            e.id =
+                                "headerlink-" +
+                                id.replaceAll(" ", "-").toLowerCase();
+                            e.addEventListener("click", function (e) {
+                                url = new URL(window.location.href);
+                                url.searchParams.set("jumpto", e.target.id);
+                                navigator.clipboard.writeText(url.toString());
+                                window.location.href = url.toString();
+                            });
+                        }
+                    });
+                setTimeout(function () {
+                    url = new URL(window.location.href);
+                    jumpto = url.searchParams.get("jumpto");
+                    if (!(jumpto == null)) {
+                        document.getElementById(jumpto).scrollIntoView(true);
+                    }
+                }, 200);
+            });
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="tree">
+                <h2 id="tableofcontents">Table of contents</h2>
+                <ul><li><a href='/TouchPanel/docs/variable_definition'><span>Variable Definition</span></a></li><ul><li><a href='/TouchPanel/docs/variable_definition/regex.html'><span>Regex Matching</span></a></li></ul><li><a href='/TouchPanel/docs/index.html'><span>Quick Start</span></a></li><li><a href='/TouchPanel/docs/load_env.html'><span>load_env()</span></a></li></ul>
+            </div>
+            <div id="main"><h1>load_env()</h1>
+<p>The <code>load_env()</code>-function loads the environment from the <code>.env</code> file and the existing environment. If any duplicate variables exist, the ones from the <code>.env</code>-file are preferred.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">load_env</span><span class="p">(</span><span class="nb">vars</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">TypedVarDefinition</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="o">/</span><span class="p">,</span> <span class="n">filename</span> <span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;.env&quot;</span><span class="p">,</span> <span class="n">exit_on_error</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">Env</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Error</span><span class="p">]]]</span>
+</code></pre></div>
+
+<p>This returns
+- An instance of <code>Env</code> if <code>exit_on_error=True</code>
+- <code>[Env, []]</code> if <code>exit_on_error=False</code> and no errors are present
+- <code>[None, list[Error]]</code> if  <code>exit_on_error=False</code> and errors are present</p></div>
+        </div>
+    </body>
+</html>
