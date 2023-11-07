@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Docs</title>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Nunito"
+        />
+        <link rel="stylesheet" href="/assets/docs-codehilie.css" />
+        <link rel="stylesheet" href="/assets/docs.css" />
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Direct header link
+                document
+                    .querySelectorAll("h1, h2, h3, h4, h5, h6")
+                    .forEach(function (e) {
+                        if (!(e.id == "tableofcontents")) {
+                            e.classList.add("headerlink");
+                            id = e.innerText;
+                            e.id =
+                                "headerlink-" +
+                                id.replaceAll(" ", "-").toLowerCase();
+                            e.addEventListener("click", function (e) {
+                                url = new URL(window.location.href);
+                                url.searchParams.set("jumpto", e.target.id);
+                                navigator.clipboard.writeText(url.toString());
+                                window.location.href = url.toString();
+                            });
+                        }
+                    });
+                setTimeout(function () {
+                    url = new URL(window.location.href);
+                    jumpto = url.searchParams.get("jumpto");
+                    if (!(jumpto == null)) {
+                        document.getElementById(jumpto).scrollIntoView(true);
+                    }
+                }, 200);
+            });
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="tree">
+                <h2 id="tableofcontents">Table of contents</h2>
+                <ul><li><a href='/TouchPanel/docs/variable_definition'><span>Variable Definition</span></a></li><ul><li><a href='/TouchPanel/docs/variable_definition/regex.html'><span>Regex Matching</span></a></li></ul><li><a href='/TouchPanel/docs/index.html'><span>Quick Start</span></a></li><li><a href='/TouchPanel/docs/load_env.html'><span>load_env()</span></a></li></ul>
+            </div>
+            <div id="main"><h1>Regex Matching</h1>
+<p>You can specify a custom format for an environment variable using regex. To do this, use the <code>regex()</code>-function, and pass in an pattern.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">regex</span><span class="p">(</span><span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RegexType</span>
+</code></pre></div></div>
+        </div>
+    </body>
+</html>
