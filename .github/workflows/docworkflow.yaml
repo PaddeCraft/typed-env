@@ -33,7 +33,7 @@ jobs:
             - name: Clean Up
               run: rm docgen-requirements.txt docgen.py
             - name: Publish Documentation
-              uses: stefanzweifel/git-auto-commit-action@v4
+              uses: stefanzweifel/git-auto-commit-action@v5
               with:
                   commit_message: build docs
                   create_branch: false
