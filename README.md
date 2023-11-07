@@ -7,7 +7,7 @@ Typed env is an easy solution to type-check and check for environment variables,
 
 ## Getting Started
 
-install the `typed-env` package.
+install the `py-typed-env` package.
 
 ## Misc
 

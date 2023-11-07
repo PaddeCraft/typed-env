@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "typed-env"
+name = "py-typed-env"
 version = "0.1.0"
 description = "Dotenv, but typed"
 authors = ["PaddeCraft <70023807+PaddeCraft@users.noreply.github.com>"]
