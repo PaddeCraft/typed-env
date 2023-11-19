@@ -9,6 +9,6 @@ def get_file_descending(name: str):
             res = os.path.join(curr, name)
             if os.access(res, os.R_OK):
                 return res
-        curr = os.path.spe.join(curr.split(os.path.sep)[:-2]) + os.path.sep
+        curr = os.path.sep.join(curr.split(os.path.sep)[:-2]) + os.path.sep
 
     return None
