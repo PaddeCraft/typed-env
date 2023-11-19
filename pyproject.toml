@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "py-typed-env"
-version = "0.1.0"
+version = "0.1.1"
 description = "Dotenv, but typed"
 authors = ["PaddeCraft <70023807+PaddeCraft@users.noreply.github.com>"]
 license = "BSD-3-Clause"
